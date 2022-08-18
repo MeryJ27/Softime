@@ -14,9 +14,9 @@ body {
 #encabezado {
     padding: 35px;
     position: absolute;
-    top: 1x;
-    right: 1px;
-    left: 1px;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #FFF5F5;
 }
 
@@ -61,102 +61,50 @@ ul {
     text-decoration: none;
 }
 
-.fila1 {
-    position: absolute;
-    top: 142px;
+.catalogoProductos{
+    margin-top: 150px;
+    padding: 0 20px;
 }
 
-.fila2 {
-    position: absolute;
-    top: 500px;
+.productsCat{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0;
+    list-style-type: none;
 }
 
-#informacion1 {
-    position: absolute;
-    right: 976px;
-    left: 55px;
+.productsCat li{
+    height: 471px;
 }
 
-#informacion5 {
-    position: absolute;
-    right: 920px;
-    left: -930px;
-}
-
-#informacion2 {
-    position: absolute;
-    right: 669px;
-    left: 372px;
-}
-
-#informacion6 {
-    position: absolute;
-    right: 613px;
-    left: -610px;
-}
-
-#informacion3 {
-    position: absolute;
-    right: 362px;
-    left: 679px;
-}
-
-#informacion7 {
-    position: absolute;
-    right: 304px;
-    left: -303px;
-}
-
-#informacion4 {
-    position: absolute;
-    right: 55px;
-    left: 985px;
+.productItem{
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    max-width: 480px;
 }
 
 .imagen{
+    height: 340px;
     box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.185);
     background-color: #fdeeee;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
 .imagen img {
+    object-fit: contain;
 }
 
-.imagen1 {
-    padding: 10px;
+.imagenPro {
     width: 260px;
     height: 320px;
-}
-
-.imagen2 {
-    padding-top: .5px;
-    padding-right: 14px;
-    padding-bottom: .5px;
-    padding-left: 14px;
-    width: 240px;
-    height: 340px;
-}
-
-.imagen3 {
-    padding-top: 50px;
-    padding-right: 5px;
-    padding-bottom: 50px;
-    padding-left: 5px;
-    width: 260px;
-    height: 240px;
-}
-
-.imagen4 {
-    padding-top: 50px;
-    padding-right: 5px;
-    padding-bottom: 50px;
-    padding-left: 5px;
-    width: 260px;
-    height: 240px;
 }
 
 .texto {
@@ -195,5 +143,5 @@ ul {
     background: #bbb2b2;
     padding: 10px;
     position: relative;
-    top: 1200px;
+    top: 2rem;
 }

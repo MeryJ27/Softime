@@ -12,7 +12,7 @@
 <body>
 
     <?php
-        include_once "includes/menu.php";
+    include_once "includes/menu.php";
     ?>
     <div>
         <img id="background" src="img/backgruond.png" alt="Color de Fondo">
@@ -20,57 +20,61 @@
     <div id="texto">
         <h2>Clientes Felices</h2>
     </div>
-    <section id="cliente1" class="fila1">
-        <article id="productos">
-            <div class="imagen">
-                <img class="imagen1" src="img/cliente1.jpg" alt="Top Deportivo">
-            </div>
-            <div>
-                <img class="iconos1" src="img/1.png" alt="">
-            </div>
-        </article>
-    </section>
+    <div class="clientesContainer">
+        <section id="cliente1" class="fila1">
+            <article>
+                <div class="imagen">
+                    <img class="imagen1" src="img/cliente1.jpg" alt="Top Deportivo">
+                </div>
+                <div class="icono">
+                    <img src="img/1.png" alt="">
+                </div>
+            </article>
+        </section>
 
 
-    <section id="cliente2" class="fila2">
-        <article id="productos">
-            <div class="imagen">
-                <img class="imagen2" src="img/cliente2.jpg" alt="Top Deportivo">
-            </div>
-            <div>
-                <img class="iconos2" src="img/2.png" alt="">
-            </div>
-        </article>
-    </section>
+        <section id="cliente2" class="fila2">
+            <article>
+                <div class="imagen">
+                    <img class="imagen2" src="img/cliente2.jpg" alt="Top Deportivo">
+                </div>
+                <div class="icono">
+                    <img src="img/2.png" alt="">
+                </div>
+            </article>
+        </section>
 
 
-    <section id="cliente3" class="fila1">
-        <article id="productos">
-            <div class="imagen">
-                <img class="imagen3" src="img/cliente3.jpg" alt="Top Deportivo">
-            </div>
+        <section id="cliente3" class="fila1">
+            <article id="productos">
+                <div class="imagen">
+                    <img class="imagen3" src="img/cliente3.jpg" alt="Top Deportivo">
+                </div>
 
-            <div>
-                <img class="iconos1" src="img/3.png" alt="">
+                <div class="icono">
+                    <img src="img/3.png" alt="">
 
-            </div>
+                </div>
 
-        </article>
-    </section>
-
-
-    <section id="cliente4" class="fila2">
-        <article id="productos">
-            <div class="imagen">
-                <img class="imagen4" src="img/cliente4.jpg" alt="Top Deportivo">
-            </div>
-            <div>
-                <img class="iconos2" src="img/4.png" alt="">
-            </div>
-        </article>
+            </article>
+        </section>
 
 
-    </section>
+        <section id="cliente4" class="fila2">
+            <article id="productos">
+                <div class="imagen">
+                    <img class="imagen4" src="img/cliente4.jpg" alt="Top Deportivo">
+                </div>
+                <div class="icono">
+                    <img src="img/4.png" alt="">
+                </div>
+            </article>
+
+
+        </section>
+
+
+    </div>
 
     <footer class="piePagina">
         <p>Contáctenos</p>

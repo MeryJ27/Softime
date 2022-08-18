@@ -4,6 +4,7 @@
     margin: 0;
     box-shadow: none;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;/*no se agranda mas*/
 }
 
 
@@ -66,38 +67,22 @@ ul {
     left: 42%;
 }
 
-.fila1 {
+.clientesContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     position: absolute;
-    top: 230px;
+    top: 222px;
+    padding: 0 20px ;
 }
 
-.fila2 {
-    position: absolute;
-    top: 350px;
+.imagen{
+    width: 270px;
+    height: 340px;
 }
 
-#cliente1 {
-    position: absolute;
-    right: 976px;
-    left: 55px;
-}
-
-#cliente2 {
-    position: absolute;
-    right: 669px;
-    left: 372px;
-}
-
-#cliente3 {
-    position: absolute;
-    right: 362px;
-    left: 679px;
-}
-
-#cliente4 {
-    position: absolute;
-    right: 55px;
-    left: 985px;
+.clientesContainer section:nth-child(2n){
+    margin-top: 60px;
 }
 
 .imagen img {
@@ -105,23 +90,25 @@ ul {
     height: auto;
     box-shadow: 4px 4px 14px 2px rgba(0, 0, 0, 0.438);
     /*1=hacia x,2=hacia y. 3=distorsion*/
+    
 }
 
-.iconos1 {
+.clientesContainer article{
+    position: relative;
+}
+
+.icono{
     position: absolute;
-    top: 520px;
-    left: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -150px;    
+}
+
+.icono img{
     width: 90px;
     height: 90px;
 }
 
-.iconos2 {
-    position: absolute;
-    top: 400px;
-    left: 100px;
-    width: 90px;
-    height: 90px;
-}
 
 .piePagina a {
     text-decoration: none;
@@ -133,5 +120,5 @@ ul {
     background: #bbb2b2;
     padding: 10px;
     position: relative;
-    top: 440px;
+    top: 350px;
 }
