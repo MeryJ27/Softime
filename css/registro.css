@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.425), rgba(0, 0, 0, 0.342)), url(../img/fondo.jpg);
+    background-size: cover;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal {
+    background-color: rgba(62, 143, 116, 0.801);
+    padding: 80px;
+    border-radius: 12px;
+    text-align: center;
+    transition: .5s;
+}
+
+.formularioRegistro {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+}
+
+.principal h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.inputgroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    height: 45px;
+    width: 90%;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    padding: 0 5px;
+}
+
+.inputgroup input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #000;
+    width: 90%;
+}
+
+.inputgroup input::placeholder {
+    color: #000;
+}
+
+.inputgroup i {
+    color: #000;
+    width: 10%;
+}
+
+.campoIncorrecto {
+    border: 2px solid #DD403A !important;
+}
+
+.campoCorrecto {
+    border: 2px solid #70db29 !important;
+}
+
+.colorincorrecto {
+    color: #DD403A !important;
+}
+
+.colorcorrecto {
+    color: #70db29 !important;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    width: 95%;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    height: 45px;
+    transition: .5s;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #193a2f;
+    color: #ffffff;
+    transform: translateY(-5px);
+    -webkit-box-shadow: 0px 19px 21px 6px rgba(255, 255, 255, 0.31);
+    box-shadow: 0px 3px 15px 2px rgba(255, 255, 255, 0.31);
+}
+
+a {
+    width: 100%;
+    background-color: white;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-radius: 25px;
+    padding: 15px 25px;
+}
