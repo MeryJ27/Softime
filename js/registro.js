@@ -1,22 +1,22 @@
 /*para ejecutar codigo dentro de la pagina cuando se carga */
 
-$(document).ready(function() {
-    $(function() {
+$(document).ready(function () {
+    $(function () {
         /*variables*/
         var inputId = 0;
         var inputgroupid = 0;
         var inputiconid = 0;
         /*each=cada, por objeto ejecuta la funcion*/
-        $('.inputgroup').each(function() {
+        $('.inputgroup').each(function () {
             inputgroupid++;
             /*this= objeto que se llama, attr= funcion, agregar atributo al objeto html*/
             $(this).attr('inputgroup-id', inputgroupid);
         });
-        $('.inputgroup input').each(function() {
+        $('.inputgroup input').each(function () {
             inputId++;
-            $(this).attr('input-id', inputId);
+            $(this).attr('input_id', inputId);
         });
-        $('.inputgroup i').each(function() {
+        $('.inputgroup i').each(function () {
             inputiconid++;
             $(this).attr('inputicon-id', inputiconid);
         });
@@ -24,20 +24,26 @@ $(document).ready(function() {
 });
 
 /*bind=funcion, agregar evento y cuando éste se ejecute haga una funcion, keyup=evento, levantar tecla*/
-$('.formularioRegistro').each(function() {
+$('.formularioRegistro').each(function () {
     $(this).bind('keyup', validarForm);
     $(this).bind('click', validarForm);
 })
 
 const expresiones = {
+    usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
     nombre: /^[a-zA-ZÀ-ÿ\s]{2,40}$/, // Letras y espacios, pueden llevar acentos.
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    password: /^.{8,12}$/
+    password: /^.{8,12}$/,
+    cedula: /^\d{6,10}$/,
+    celular: /^\d{10,10}$/
 }
 
 /*e=evento, target=objetivo, if=si es x ejecutar y, switch=en caso de, break=romper*/
 function validarForm(e) {
     switch (e.target.name) {
+        case "username":
+            validarCampo(expresiones.usuario, e.target);
+            break;
         case "nombres":
             validarCampo(expresiones.nombre, e.target);
             break;
@@ -49,16 +55,42 @@ function validarForm(e) {
             break;
         case "password":
             validarCampo(expresiones.password, e.target);
+            samePassword();
             break;
         case "confirmar_password":
-            validarCampo(expresiones.password, e.target);
+            samePassword();
             break;
     }
 }
 
+function samePassword() {
+    var valuePassword = $(`.inputFormulario[name="password"]`);
+    var valueConfPassword = $(`.inputFormulario[name="confirmar_password"]`);
+    var idInputConf = valueConfPassword[0].attributes.input_id.nodeValue
+    var inputgroupConf = $(`.inputgroup[inputgroup-id="${idInputConf}"]`);
+    var inputiconConf = $(`.inputgroup i[inputicon-id="${idInputConf}"]`);
+
+    if (valuePassword.val() == "" || valueConfPassword.val() == "") {
+        $(inputgroupConf).removeClass('campoCorrecto');
+        $(inputiconConf).removeClass('colorcorrecto');
+        $(inputgroupConf).addClass('campoIncorrecto');
+        $(inputiconConf).addClass('colorincorrecto');
+    } else if (valuePassword.val() === valueConfPassword.val()) {
+        $(inputgroupConf).removeClass('campoIncorrecto');
+        $(inputiconConf).removeClass('colorincorrecto');
+        $(inputgroupConf).addClass('campoCorrecto');
+        $(inputiconConf).addClass('colorcorrecto');
+    } else {
+        $(inputgroupConf).removeClass('campoCorrecto');
+        $(inputiconConf).removeClass('colorcorrecto');
+        $(inputgroupConf).addClass('campoIncorrecto');
+        $(inputiconConf).addClass('colorincorrecto');
+    }
+}
+
 function validarCampo(expresion, input) {
-    var inputID = input.attributes[5].nodeValue;
-    var inputActivo = $(`.inputFormulario[input-id="${inputID}"]`);
+    var inputID = input.attributes.input_id.nodeValue;
+    var inputActivo = $(`.inputFormulario[input_id="${inputID}"]`);
     var inputgroupActivo = $(`.inputgroup[inputgroup-id="${inputID}"]`);
     var inputiconActivo = $(`.inputgroup i[inputicon-id="${inputID}"]`);
 

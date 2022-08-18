@@ -18,6 +18,14 @@ body {
     align-items: center;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+}
+
 .principal {
     background-color: rgba(62, 143, 116, 0.801);
     padding: 80px;

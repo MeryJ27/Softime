@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+#encabezado {
+    padding: 35px;
+    position: absolute;
+    top: 1x;
+    right: 1px;
+    left: 1px;
+    background-color: #FFF5F5;
+}
+
+#encabezado h2 {
+    font-size: 23px;
+    font-style: italic;
+    position: absolute;
+    top: 35px;
+    left: 150px;
+}
+
+#logo {
+    border-radius: 12px;
+    width: 90px;
+    height: 90px;
+    float: left;
+    position: absolute;
+    top: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+#menu li>a {
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 8px 40px;
+    display: block;
+}
+
+#menu>li {
+    float: right;
+}
+
+#menu>li>a:hover {
+    background-color: #d4e5ff;
+}
+
+#imagen1 {
+    width: 300px;
+    height: 270px;
+    position: relative;
+    top: 170px;
+    left: 100px;
+    border-radius: 50%;
+}
+
+#direccion {
+    box-shadow: 5px 5px 12px 4px rgba(0, 0, 0, 0.185);
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #ffd5fd;
+    padding: 140px;
+    border-radius: 50%;
+}
+
+#imagen2 {
+    width: 300px;
+    height: 270px;
+    position: relative;
+    top: 120px;
+    right: -890px;
+    border-radius: 50%;
+}
+
+.piePagina a {
+    text-decoration: none;
+    color: #a3484d;
+}
+
+.piePagina {
+    text-align: center;
+    background: #bbb2b2;
+    padding: 10px;
+    position: relative;
+    top: 300px;
+}
