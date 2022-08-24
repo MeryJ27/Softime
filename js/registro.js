@@ -75,17 +75,22 @@ function samePassword() {
         $(inputiconConf).removeClass('colorcorrecto');
         $(inputgroupConf).addClass('campoIncorrecto');
         $(inputiconConf).addClass('colorincorrecto');
+        $(inputgroupConf).attr('estado', 'wrong');
     } else if (valuePassword.val() === valueConfPassword.val()) {
         $(inputgroupConf).removeClass('campoIncorrecto');
         $(inputiconConf).removeClass('colorincorrecto');
         $(inputgroupConf).addClass('campoCorrecto');
         $(inputiconConf).addClass('colorcorrecto');
+        $(inputgroupConf).removeAttr('estado');
     } else {
         $(inputgroupConf).removeClass('campoCorrecto');
         $(inputiconConf).removeClass('colorcorrecto');
         $(inputgroupConf).addClass('campoIncorrecto');
         $(inputiconConf).addClass('colorincorrecto');
+        $(inputgroupConf).attr('estado', 'wrong');
     }
+
+    validarFormButton();
 }
 
 function validarCampo(expresion, input) {
@@ -97,6 +102,7 @@ function validarCampo(expresion, input) {
     if (expresion.test(input.value)) {
         $(inputgroupActivo).removeClass('campoIncorrecto');
         $(inputiconActivo).removeClass('colorincorrecto');
+        $(inputgroupActivo).removeAttr('estado');
         $(inputgroupActivo).addClass('campoCorrecto');
         $(inputiconActivo).addClass('colorcorrecto');
     } else {
@@ -104,6 +110,19 @@ function validarCampo(expresion, input) {
         $(inputiconActivo).removeClass('colorcorrecto');
         $(inputgroupActivo).addClass('campoIncorrecto');
         $(inputiconActivo).addClass('colorincorrecto');
+        $(inputgroupActivo).attr('estado', 'wrong');
+    }
 
+    validarFormButton();
+}
+
+function validarFormButton() {
+    var inputsInvalidos = $('.inputgroup[estado="wrong"]');
+    if (inputsInvalidos.length >= 1) {
+        console.log("No se puede registrar");
+        $('#btnRegistro').addClass('invalid');
+    } else {
+        console.log("Se puede registrar");
+        $('#btnRegistro').removeClass('invalid');
     }
 }

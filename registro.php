@@ -14,7 +14,11 @@ if (isset($_POST['registrar'])) {
         'concontraseña' => $_POST['confirmar_password']
     );
 
-    $consultas->registrarUsuario($datos);
+    $response = $consultas->registrarUsuario($datos);
+
+    if ($response === true) {
+        header("location: mi-cuenta.php");
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -27,40 +31,40 @@ if (isset($_POST['registrar'])) {
     <link rel="stylesheet" href="css/registro.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <titleRegistro< /title>
+    <title>Registro</title>
 </head>
 
 <body>
     <div class="principal">
         <h2>Regístrate</h2>
         <form class="formularioRegistro" action="" method="POST">
-            <div class="inputgroup">
+            <div class="inputgroup" estado="wrong">
                 <i class='bx bx-user-circle'></i>
                 <input class="inputFormulario" type="text" name="username" placeholder="Nombre de usuario">
             </div>
-            <div class="inputgroup">
+            <div class="inputgroup" estado="wrong">
                 <i class='bx bx-user-circle'></i>
                 <input class="inputFormulario" type="text" name="nombres" placeholder="Nombres">
             </div>
-            <div class="inputgroup">
+            <div class="inputgroup" estado="wrong">
                 <i class='bx bx-user-circle'></i>
                 <input class="inputFormulario" type="text" name="apellidos" placeholder="Apellidos">
             </div>
-            <div class="inputgroup">
+            <div class="inputgroup" estado="wrong">
                 <i class='bx bx-mail-send'></i>
                 <input class="inputFormulario" type="text" name="email" placeholder="Email">
             </div>
-            <div class="inputgroup">
+            <div class="inputgroup" estado="wrong">
                 <i class='bx bx-lock-alt'></i>
                 <input class="inputFormulario" type="password" name="password" placeholder="Contraseña">
             </div>
-            <div class="inputgroup">
+            <div class="inputgroup" estado="wrong">
                 <i class='bx bx-lock-alt'></i>
                 <input class="inputFormulario" type="password" name="confirmar_password"
                     placeholder="Confirmar Contraseña">
             </div>
 
-            <input type="submit" name="registrar" value="Registrarme">
+            <input id="btnRegistro" class="invalid" type="submit" name="registrar" value="Registrarme">
         </form>
     </div>
 
