@@ -12,7 +12,8 @@ $f = new funciones();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/micuenta.css">
     <link rel="stylesheet" href="css/table.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> <!-- libreia jquery -->
     <title>Mi Cuenta</title>
 </head>
@@ -40,9 +41,9 @@ $f = new funciones();
                 <div class="avatarprofile">
                     <img src="http://src.neapyre.com/images/avatar_woman.png" alt="avatar">
                 </div>
-                <h2><?php echo $_SESSION['nombreCliente']; ?></h2>
+                <h2 id="nombreClienteProfile"><?php echo $_SESSION['nombreCliente']; ?></h2>
                 <span><?php echo $f->mostrarRol($_SESSION['rolCliente']); ?></span>
-                <span><?php echo $_SESSION['ceduCliente']; ?></span>
+                <span id="cedulaClienteProfile"><?php echo $_SESSION['ceduCliente']; ?></span>
             </div>
             <div class="bottom">
                 <div class="optionprofile" id="detallesbtn">
@@ -51,12 +52,27 @@ $f = new funciones();
                     </i>
                     <span>Detalles de la Cuenta</span>
                 </div>
+                <?php
+                if ($_SESSION['rolCliente'] == 1) {
+                ?>
                 <div class="optionprofile" id="miscomprasbtn">
                     <i class="material-symbols-outlined">
                         shopping_cart
                     </i>
                     <span>Mis Compras</span>
                 </div>
+                <?php
+                } else if ($_SESSION['rolCliente'] == 2) {
+                ?>
+                <a class="optionprofile" href="control.php">
+                    <i class="material-symbols-outlined">
+                        admin_panel_settings
+                    </i>
+                    <span>Panel De Control</span>
+                </a>
+                <?php
+                }
+                ?>
                 <div class="optionprofile">
                     <a href="includes/logout.php">
                         <i class="material-symbols-outlined">
@@ -74,7 +90,7 @@ $f = new funciones();
                         <div class="optionnamedetails">
                             <span>Nombre de Usuario:</span>
                         </div>
-                        <div class="optiondescriptiondetails">
+                        <div class="optiondescriptiondetails" dataCampo="username">
                             <span><?php echo $_SESSION['username']; ?></span>
                         </div>
                     </div>
@@ -82,7 +98,7 @@ $f = new funciones();
                         <div class="optionnamedetails">
                             <span>Nombre:</span>
                         </div>
-                        <div class="optiondescriptiondetails">
+                        <div class="optiondescriptiondetails" dataCampo="nombre">
                             <span><?php echo $_SESSION['nombreCliente']; ?></span>
                         </div>
                     </div>
@@ -90,7 +106,7 @@ $f = new funciones();
                         <div class="optionnamedetails">
                             <span>Apellido:</span>
                         </div>
-                        <div class="optiondescriptiondetails">
+                        <div class="optiondescriptiondetails" dataCampo="apellido">
                             <span><?php echo $_SESSION['apeCliente']; ?></span>
                         </div>
                     </div>
@@ -98,7 +114,7 @@ $f = new funciones();
                         <div class="optionnamedetails">
                             <span>Cedula de Ciudadania:</span>
                         </div>
-                        <div class="optiondescriptiondetails">
+                        <div class="optiondescriptiondetails" dataCampo="cedula">
                             <span><?php echo $_SESSION['ceduCliente']; ?></span>
                         </div>
                     </div>
@@ -106,7 +122,7 @@ $f = new funciones();
                         <div class="optionnamedetails">
                             <span>Telefono:</span>
                         </div>
-                        <div class="optiondescriptiondetails">
+                        <div class="optiondescriptiondetails" dataCampo="telefono">
                             <span><?php echo $_SESSION['teleCliente']; ?></span>
                         </div>
                     </div>
@@ -114,7 +130,7 @@ $f = new funciones();
                         <div class="optionnamedetails">
                             <span>Correo:</span>
                         </div>
-                        <div class="optiondescriptiondetails">
+                        <div class="optiondescriptiondetails" dataCampo="email">
                             <span><?php echo $_SESSION['correoCliente']; ?></span>
                         </div>
                     </div>
@@ -122,8 +138,13 @@ $f = new funciones();
                         <div class="optionnamedetails">
                             <span>Dirección:</span>
                         </div>
-                        <div class="optiondescriptiondetails">
+                        <div class="optiondescriptiondetails" dataCampo="direccion">
                             <span><?php echo $_SESSION['direCliente']; ?></span>
+                        </div>
+                    </div>
+                    <div class="footerDetails">
+                        <div class="btnInfoDetails" action="editar" id="btnInfo">
+                            <span>Editar</span>
                         </div>
                     </div>
                 </div>

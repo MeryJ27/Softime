@@ -176,6 +176,48 @@ ul {
     font-weight: bold;    
 }
 
+.inputInfoDetail{
+    border: 1.5px solid #bec4ca;
+    padding: 3px 6px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.inputInfoDetail:focus{
+    border: 1.5px solid #90969b;
+}
+
+.inputInfoDetail.invalid{
+    border: 1.5px solid red !important;
+}
+
+.footerDetails{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.btnInfoDetails{
+    background-color: #DEE2E6;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.btnInfoDetails:hover{
+    color: white;
+    background-color: #DA545A;
+    transform: translateY(-5px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btnInfoDetails.invalid{
+    pointer-events: none !important;
+    background-color: gray !important;
+}
+
 .mainContainer .right .pagesSlider .page2{
     background-color: red;
 }

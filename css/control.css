@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+
+#encabezado {
+    padding: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FFF5F5;
+}
+
+#encabezado h2 {
+    font-size: 23px;
+    font-style: italic;
+    position: absolute;
+    top: 35px;
+    left: 150px;
+}
+
+#logo {
+    border-radius: 12px;
+    width: 90px;
+    height: 90px;
+    float: left;
+    position: absolute;
+    top: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+#menu li>a {
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 8px 40px;
+    display: block;
+}
+
+#menu>li {
+    float: right;
+}
+
+#menu>li>a:hover {
+    background-color: #d4e5ff;
+}
+
+.main_content {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f9fe;
+}
+
+.mainRow {
+    width: 100%;
+    padding: 0 50px;
+    padding-top: 150px;
+}
+
+.dataPanel {
+    width: 100%;
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15) !important;
+}
+
+.dataPanelHeader {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: calc(0.375rem - 1px) calc(0.375rem - 1px) 0 0;
+    padding: 1.25rem 1.5rem;
+}
+
+.dataPanelHeader .left {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #32325d;
+}
+
+.dataPanelHeader .center .backSearchTable {
+    background-color: transparent;
+    border-radius: 25px;
+    border: 2px solid #DA545A;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dataPanelHeader .center .backSearchTable i {
+    color: #DA545A;
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+.dataPanelHeader .center .backSearchTable input {
+    height: 100%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.dataPanelHeader .right select#maxRows {
+    background-color: #DA545A;
+    color: #fff;
+    border: 2px solid;
+    border-color: #DA545A;
+    border-radius: 5px;
+    box-shadow: none;
+    outline: none;
+    padding: 2px 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tablaContainer {
+    word-wrap: break-word;
+    display: block;
+    width: 100%;
+    /*overflow-x: auto;*/
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.paginacionContainer{
+    border-radius: calc(0.375rem - 1px) calc(0.375rem - 1px) 0 0;
+}

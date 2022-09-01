@@ -23,6 +23,7 @@ class consultasDB extends DB
             $row = $query->fetch(PDO::FETCH_ASSOC);
 
             if ($row == true) {
+                $_SESSION['id'] = $row['id_usuario'];
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['nombreCliente'] = $row['nombres'];
                 $_SESSION['apeCliente'] = $row['apellidos'];
@@ -49,6 +50,50 @@ class consultasDB extends DB
             return true;
         } catch (PDOException $e) {
             return print_r('Error ejecuntando la acción registrar usuario: ' . $e->getMessage());
+        }
+    }
+
+    function actualizarDatos($data)
+    {
+        try {
+            $query = $this->connect()->prepare('UPDATE usuarios SET username = :username, nombres = :nom, apellidos = :ape, cedula_ciudadania = :cc, telefono = :tel, correo = :correo, direccion = :dir WHERE id_usuario = :idUsuario');
+            $query->execute(['username' => $data['username'], 'nom' => $data['nombres'], 'ape' => $data['apellidos'], 'cc' => $data['cedula'], 'tel' => $data['telefono'], 'correo' => $data['correo'], 'dir' => $data['direccion'], 'idUsuario' => $data['idUsuario']]);
+
+            $_SESSION['username'] = $data['username'];
+            $_SESSION['nombreCliente'] = $data['nombres'];
+            $_SESSION['apeCliente'] = $data['apellidos'];
+            $_SESSION['ceduCliente'] = $data['cedula'];
+            $_SESSION['teleCliente'] = $data['telefono'];
+            $_SESSION['correoCliente'] = $data['correo'];
+            $_SESSION['direCliente'] = $data['direccion'];
+
+            return true;
+        } catch (PDOException $e) {
+            return print_r('Error ejecuntando la acción actualizar datos: ' . $e->getMessage());
+        }
+    }
+
+    function obtenerClientes()
+    {
+        try {
+            $query = $this->connect()->prepare('SELECT * FROM usuarios');
+            $query->execute();
+
+            return $query;
+        } catch (PDOException $e) {
+            return print_r('Error ejecuntando la acción obtener clientes: ' . $e->getMessage());
+        }
+    }
+
+    function cambiarEstado($estado, $id)
+    {
+        try {
+            $query = $this->connect()->prepare('UPDATE usuarios SET estado = :estado WHERE id_usuario = :id');
+            $query->execute(['estado' => $estado, 'id' => $id]);
+
+            return true;
+        } catch (PDOException $e) {
+            return print_r('Error ejecuntando la acción cambiar Estado: ' . $e->getMessage());
         }
     }
 }

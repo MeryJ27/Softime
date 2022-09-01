@@ -119,10 +119,8 @@ function validarCampo(expresion, input) {
 function validarFormButton() {
     var inputsInvalidos = $('.inputgroup[estado="wrong"]');
     if (inputsInvalidos.length >= 1) {
-        console.log("No se puede registrar");
         $('#btnRegistro').addClass('invalid');
     } else {
-        console.log("Se puede registrar");
         $('#btnRegistro').removeClass('invalid');
     }
 }
