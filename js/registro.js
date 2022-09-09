@@ -24,6 +24,7 @@ $(document).ready(function () {
 });
 
 /*bind=funcion, agregar evento y cuando éste se ejecute haga una funcion, keyup=evento, levantar tecla*/
+
 $('.formularioRegistro').each(function () {
     $(this).bind('keyup', validarForm);
     $(this).bind('click', validarForm);

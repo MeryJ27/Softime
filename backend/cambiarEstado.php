@@ -6,18 +6,19 @@ $estado = $_POST['estado'];
 $id = $_POST['id'];
 $newEstado = "";
 
-if($estado == "Activo"){
+if ($estado == "Activo") {
     $newEstado = "Inactivo";
-}else if($estado == "Inactivo"){
+} else if ($estado == "Inactivo") {
     $newEstado = "Activo";
-}else{
+} else {
     $newEstado = "Error";
 }
 
+
 $res = $cons->cambiarEstado($newEstado, $id);
 
-if($res === true){
+if ($res === true) {
     echo $newEstado;
-}else{
+} else {
     echo "error";
 }

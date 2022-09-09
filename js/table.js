@@ -59,7 +59,6 @@ $(document).ready(function () {
         }
     }
 
-
     if ($(document).find('table tbody .btnActions').length >= 1) {
         var btnMenuID = 0;
         var menuID = 0;

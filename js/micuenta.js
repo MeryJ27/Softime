@@ -120,7 +120,6 @@ $('#btnInfo').on('click', function () {
             $(this).bind('click', validarForm);
         });
     } else if (actionBtn = "guardar") {
-        console.log("funcion guardar");
         var inputs = document.querySelectorAll('.inputInfoDetail');
         var data = {
             "username": inputs[0].value,
@@ -159,3 +158,64 @@ $('#btnInfo').on('click', function () {
         });
     }
 });
+
+$('#openChangeFormBtn').click(function (e) {
+    $('.changePasswordForm').css('display', 'flex');
+});
+
+$('#closeChangeFormBtn').click(function (e) {
+    $('.changePasswordForm').css('display', 'none');
+})
+
+$('.inputChangePassword').each(function () {
+    $(this).bind('keyup', validarChangePassword);
+    $(this).bind('click', validarChangePassword);
+});
+
+function validarChangePassword(e) {
+    switch (e.target.name) {
+        case "password":
+            validarCampoPassword(expresiones.password, e.target);
+            break;
+        case "confPassword":
+            sameValue(e.target, $('input[name="password"]'));
+            break;
+    }
+    validarBtnPassword();
+}
+
+function validarCampoPassword(expresion, input) {
+    if (expresion.test(input.value)) {
+
+        $(input).removeClass('invalid');
+        $(input).addClass('valid');
+        $(input).removeAttr('estado');
+    } else {
+
+        $(input).removeClass('valid');
+        $(input).addClass('invalid');
+        $(input).attr('estado', 'wrong');
+    }
+}
+
+function sameValue(input1, input2) {
+    if (input1.value == input2.val()) {
+        $(input1).removeClass('invalid');
+        $(input1).addClass('valid');
+        $(input1).removeAttr('estado');
+    } else {
+        $(input1).removeClass('valid');
+        $(input1).addClass('invalid');
+        $(input1).attr('estado', 'wrong');
+    }
+}
+
+function validarBtnPassword() {
+    var inputsInvalidos = $('.inputChangePassword[estado="wrong"]');
+
+    if (inputsInvalidos.length >= 1) {
+        $('#btnChangePassword').addClass('formInvalid');
+    } else {
+        $('#btnChangePassword').removeClass('formInvalid');
+    }
+}

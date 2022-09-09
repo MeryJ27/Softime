@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['rolCliente']) || $_SESSION['rolCliente'] != 2) {
+    header('location: index.php');
+    exit();
+}
+
 include_once "includes/consultas.php";
 include_once 'includes/functions.php';
 $cons = new consultasDB();
@@ -17,15 +23,17 @@ $res = $cons->obtenerClientes();
     <link rel="stylesheet" href="css/table.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="css/controlDetails.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> <!-- libreia jquery -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/ed68f2a6f3.js" crossorigin="anonymous"></script>
     <title>Panel de Control</title>
 </head>
 
-<body>
+<body uId="<?php echo $_SESSION['id']; ?>">
     <?php
     include_once "includes/menu.php";
+    include_once "includes/controlDetails.php";
     ?>
 
     <div class="main_content">
@@ -57,6 +65,7 @@ $res = $cons->obtenerClientes();
                 <div class="tablaContainer">
                     <table id="usuariosTabla" class="mainDataTablePedidos">
                         <thead>
+
                             <tr>
                                 <th>ID</th>
                                 <th>Usuario</th>
@@ -88,7 +97,8 @@ $res = $cons->obtenerClientes();
                                             </i>
                                         </div>
                                         <div class="menuAcciones" id_estado="<?php echo $row['id_usuario']; ?>">
-                                            <a href="#" class="optionMenuAcciones">Detalles</a>
+                                            <span onclick="openControlDetails(<?php echo $row['id_usuario']; ?>)"
+                                                class="optionMenuAcciones">Detalles</span>
                                             <a href="#" class="optionMenuAcciones">Ver Facturas</a>
                                             <span class="optionMenuAcciones changeStatus"
                                                 onclick="changeStatus(<?php echo '`' . $row['estado'] . '`' ?>, <?php echo $row['id_usuario']; ?>)">Cambiar
@@ -104,6 +114,12 @@ $res = $cons->obtenerClientes();
                     </table>
                 </div>
                 <div class="paginacionContainer">
+                    <a href="generarUsuario.php" class="btnAddUser">
+                        <i class="material-symbols-outlined">
+                            person_add
+                        </i>
+                        <span>Agregar Usuario</span>
+                    </a>
                     <nav class="paginacion">
                         <ul class="ulPaginacion">
                             <div class="insertPrevButton"></div>

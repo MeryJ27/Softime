@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-08-2022 a las 07:26:43
+-- Tiempo de generación: 10-09-2022 a las 01:32:43
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.11
 
@@ -194,23 +194,31 @@ CREATE TABLE `transporte` (
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(10) NOT NULL,
+  `estado` varchar(50) NOT NULL,
   `username` varchar(70) NOT NULL,
   `nombres` varchar(50) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
-  `cedula_ciudadania` char(10) NOT NULL,
-  `telefono` int(10) NOT NULL,
+  `cedula_ciudadania` varchar(50) NOT NULL,
+  `telefono` varchar(50) NOT NULL,
   `correo` varchar(50) DEFAULT NULL,
   `direccion` varchar(50) DEFAULT NULL,
   `contraseña` varchar(50) NOT NULL,
-  `rol` int(10) NOT NULL
+  `rol` int(10) NOT NULL,
+  `ultimo_login` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `username`, `nombres`, `apellidos`, `cedula_ciudadania`, `telefono`, `correo`, `direccion`, `contraseña`, `rol`) VALUES
-(7, 'admin', 'Jaydeve', 'Bernal Guisao', '1000131979', 316712445, 'jaydevemiranda2@gmail.com', 'calle 71', 'e00cf25ad42683b3df678c61f42c6bda', 2);
+INSERT INTO `usuarios` (`id_usuario`, `estado`, `username`, `nombres`, `apellidos`, `cedula_ciudadania`, `telefono`, `correo`, `direccion`, `contraseña`, `rol`, `ultimo_login`) VALUES
+(6, 'Activo', 'jaydeve', 'Jaydeve', 'Miranda Mendieta', '1000131646', '3167124457', 'jaydevemiranda2@gmail.com', 'calle 71 a Sur ', 'f1ad04595ab0301a2c3e2a2429a78259', 2, '09/09/2022 06:30 pm'),
+(7, 'Activo', 'Admin', 'Juan Daniel', 'Bernal Guisao', '1000131979', '3264575245', 'juan@gmail.com', 'calle 71 a sur 15', 'b0ede41dc6a1f19810fad8d0e99456a1', 2, '09/09/2022 06:31 pm'),
+(9, 'Activo', 'juana45', 'Juana', 'Estupiñán', '1011543023', '3167415454', 'jaydevemiranda28@gmail.com', 'calle 65 # 15-27', 'f1ad04595ab0301a2c3e2a2429a78259', 1, '07/09/2022 10:27 pm'),
+(10, 'Activo', 'sofi21', 'Sofia ', 'Mendieta', '123521', '3217415454', 'sofi@gmail.com', 'carrera 71 #12 - 23', '83422503bcfc01d303030e8a7cc80efc', 1, '09/09/2022 04:04 pm'),
+(11, 'Activo', 'aleja12', 'Aleja', 'Espinel', '1548879', '352124526', 'aleja@hotmail.com', 'calle 71 #12', 'c84258e9c39059a89ab77d846ddab909', 2, '09/09/2022 06:20 pm'),
+(12, 'Activo', 'Juan27', 'Pedro', 'Estupiñan', '124566', '3256584578', 'erledymiranda711@gmail.com', 'carrera 71 #12 - 23', 'f1ad04595ab0301a2c3e2a2429a78259', 1, '09/09/2022 04:09 pm'),
+(13, 'Activo', 'diana12', 'Diana', 'Perez', '123521', '3217415454', 'diana@gmail.com', 'carrera 71 #12 - 23', 'd198701ea9845a81821458aba5e077d6', 1, '09/09/2022 06:23 pm');
 
 -- --------------------------------------------------------
 
@@ -378,7 +386,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas

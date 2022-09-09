@@ -1,0 +1,87 @@
+section.detailsControl{
+    position: fixed;
+    top: 0;
+    right: -30%;
+    width: 30%;
+    height: 100vh;
+    background: #f8f9fe;
+    z-index: 99;
+    padding: 40px;
+    overflow-y: scroll;
+    box-shadow: 0 0 2rem 2rem rgb(136 152 170 / 15%);
+    transition: .3s ease all;
+}
+
+section.detailsControl.activo{
+    right: 0 !important;
+}
+
+section.detailsControl .header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.detailsControl .header h4{
+    font-size: 25px;
+}
+
+section.detailsControl .header i{
+    cursor: pointer;
+}
+
+section.detailsControl .contentDetailsControl{
+    display: flex;
+    flex-direction: column;
+}
+
+section.detailsControl .itemDetailsControl{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+section.detailsControl .itemDetailsControl span.itemName{
+    font-weight: 500;
+}
+
+section.detailsControl .itemDetailsControl input[type="text"], section.detailsControl .itemDetailsControl select{
+    width: 150px;
+    border: 1.5px solid #bec4ca;
+    padding: 3px 6px;
+    border-radius: 6px;
+    outline: none;
+}
+section.detailsControl .itemDetailsControl input[type="text"]:focus{
+    border: 1.5px solid #90969b;
+}
+
+.footerSeccion{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btnInfoDetails{
+    width: 100px;
+    background-color: #DEE2E6;
+    padding: 5px 10px;
+    margin-top: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s ease all;    
+    text-align: center;
+}
+
+.btnInfoDetails:hover{
+    color: white;
+    background-color: #DA545A;
+    transform: translateY(-5px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btnInfoDetails.invalid{
+    pointer-events: none !important;
+    background-color: gray !important;
+}

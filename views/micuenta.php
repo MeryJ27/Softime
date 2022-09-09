@@ -1,8 +1,15 @@
 <?php
 include_once 'includes/functions.php';
+include_once 'includes/consultas.php';
 
 $f = new funciones();
+$c = new consultasDB();
+
+if (isset($_POST['cambiarPassword'])) {
+    $res = $c->cambiarPass($_POST['password'], $_SESSION['id']);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -143,6 +150,9 @@ $f = new funciones();
                         </div>
                     </div>
                     <div class="footerDetails">
+                        <div class="btnInfoDetails" id="openChangeFormBtn">
+                            <span>Cambiar Contraseña</span>
+                        </div>
                         <div class="btnInfoDetails" action="editar" id="btnInfo">
                             <span>Editar</span>
                         </div>
@@ -229,6 +239,22 @@ $f = new funciones();
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="changePasswordForm">
+        <div class="formChangePasswordCont">
+            <div class="btnCloseContainer" id="closeChangeFormBtn">
+                X
+            </div>
+            <h3>Cambiar Contraseña</h3>
+            <form action="" method="post">
+                <input class="inputChangePassword" type="password" placeholder="Contraseña" name="password"
+                    estado="wrong">
+                <input class="inputChangePassword" type="password" placeholder="Confirmar Contraseña"
+                    name="confPassword" estado="wrong">
+                <input id="btnChangePassword" class="formInvalid" name="cambiarPassword" type="submit"
+                    value="Cambiar Contraseña">
+            </form>
         </div>
     </div>
     <script src="js/micuenta.js"></script>
